@@ -1,4 +1,4 @@
-const Appointment = require("../models/Appointment");
+const Appointment = require("../models/appointments");
 
 // GET /api/appointments
 const getAllAppointments = async (req, res) => {
