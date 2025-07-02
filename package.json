@@ -1,0 +1,19 @@
+{
+  "name": "postgre-health-care-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "uuid": "^11.1.0"
+  }
+}

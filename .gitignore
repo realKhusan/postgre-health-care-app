@@ -1,0 +1,11 @@
+# Node.js modullari
+node_modules/
+
+# Muhit konfiguratsiyasi
+.env
+
+# Log fayllari
+*.log
+
+# MacOS maxsus fayllari
+.DS_Store
