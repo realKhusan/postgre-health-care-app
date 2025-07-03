@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Care App</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Health Care Management System</h1>
+      <p>
+        This application allows you to manage <strong>Patients</strong> and
+        their <strong>Appointments</strong> using a RESTful API structure.
+      </p>
+
+      <div class="section">
+        <h2>📋 Patient Module</h2>
+        <ul>
+          <li>GET → <code>/api/patients/all</code> – Retrieve all patients</li>
+          <li>POST → <code>/api/patients/add</code> – Add a new patient</li>
+          <li>
+            PUT → <code>/api/patients/edit/:id</code> – Edit a patient by ID
+          </li>
+          <li>
+            DELETE → <code>/api/patients/delete/:id</code> – Delete a patient by
+            ID
+          </li>
+          <li>
+            GET → <code>/api/patients/without-appointments</code> – Get patients
+            without appointments
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📅 Appointment Module</h2>
+        <ul>
+          <li>
+            GET → <code>/api/appointments/all</code> – Retrieve all appointments
+          </li>
+          <li>
+            POST → <code>/api/appointments/add</code> – Add a new appointment
+          </li>
+          <li>
+            PUT → <code>/api/appointments/edit/:id</code> – Edit an appointment
+            by ID
+          </li>
+          <li>
+            DELETE → <code>/api/appointments/delete/:id</code> – Delete an
+            appointment by ID
+          </li>
+          <li>
+            GET → <code>/api/appointments/by-date</code> – Filter appointments
+            by date range
+          </li>
+          <li>
+            GET → <code>/api/appointments/by-doctor/:doctor</code> –
+            Appointments by doctor
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🛡️ Data Validation</h2>
+        <p>All input data is validated to ensure:</p>
+        <ul>
+          <li>✔ Required fields are filled</li>
+          <li>✔ Dates and emails have valid formats</li>
+          <li>✔ Unique constraints and logic rules are respected</li>
+        </ul>
+      </div>
+
+      <p><em>Use tools like Postman to send requests to these routes.</em></p>
+    </div>
+  </body>
+</html>

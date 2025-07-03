@@ -14,8 +14,12 @@ const appointmentsRoutes = require("./routes/appointments");
 app.use("/api/patients", patientsRoutes);
 app.use("/api/appointments", appointmentsRoutes);
 
+app.use("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "views", "main.html"));
+});
+
 app.use((req, res) => {
-  res.status(404).json({ title: "Not found", cssPath: "/styles/404.css" });
+  res.status(404).sendFile(path.join(__dirname, "views", "not-found.html"));
 });
 app.listen(ROUTE, () => {
   console.log("server running port:", ROUTE);
