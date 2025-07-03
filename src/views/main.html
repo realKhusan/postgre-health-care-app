@@ -10,13 +10,14 @@
     <div class="container">
       <h1>Welcome to the Health Care Management System</h1>
       <p>
-        This application allows you to manage <strong>Patients</strong> and
-        their <strong>Appointments</strong> using a RESTful API structure.
+        This application helps you manage <strong>patients</strong> and their
+        <strong>appointments</strong> through a RESTful API with a PostgreSQL
+        backend.
       </p>
 
       <div class="section">
         <h2>📋 Patient Module</h2>
-        <ul>
+        <ul class="module">
           <li>GET → <code>/api/patients/all</code> – Retrieve all patients</li>
           <li>POST → <code>/api/patients/add</code> – Add a new patient</li>
           <li>
@@ -31,11 +32,24 @@
             without appointments
           </li>
         </ul>
+
+        <h3>📄 Patients Table Fields:</h3>
+        <ul class="table">
+          <li><code>id</code> – Unique identifier (BIGSERIAL, PK)</li>
+          <li><code>name</code> – Full name (VARCHAR, required)</li>
+          <li><code>age</code> – Age (must be ≥ 0)</li>
+          <li><code>medical_history</code> – Medical background (TEXT)</li>
+          <li><code>phone</code> – Contact number (VARCHAR)</li>
+          <li><code>email</code> – Unique email (VARCHAR, unique)</li>
+          <li><code>address</code> – Home address (TEXT)</li>
+          <li><code>created_at</code> – Timestamp when added</li>
+          <li><code>updated_at</code> – Timestamp when last updated</li>
+        </ul>
       </div>
 
       <div class="section">
         <h2>📅 Appointment Module</h2>
-        <ul>
+        <ul class="module">
           <li>
             GET → <code>/api/appointments/all</code> – Retrieve all appointments
           </li>
@@ -51,27 +65,50 @@
             appointment by ID
           </li>
           <li>
-            GET → <code>/api/appointments/by-date</code> – Filter appointments
-            by date range
+            GET → <code>/api/appointments/by-date</code> – Filter by date range
           </li>
           <li>
-            GET → <code>/api/appointments/by-doctor/:doctor</code> –
-            Appointments by doctor
+            GET → <code>/api/appointments/by-doctor/:doctor</code> – View
+            appointments by doctor
           </li>
+        </ul>
+
+        <h3>📄 Appointments Table Fields:</h3>
+        <ul class="table">
+          <li><code>id</code> – Unique identifier (BIGSERIAL, PK)</li>
+          <li><code>patient_id</code> – Reference to patient (FK)</li>
+          <li>
+            <code>doctor_name</code> – Name of the doctor (VARCHAR, required)
+          </li>
+          <li>
+            <code>appointment_date</code> – Date of appointment (DATE, required)
+          </li>
+          <li>
+            <code>status</code> – Appointment status: <code>scheduled</code>,
+            <code>completed</code>, or <code>canceled</code>
+          </li>
+          <li><code>created_at</code> – Timestamp when added</li>
+          <li><code>updated_at</code> – Timestamp when last updated</li>
         </ul>
       </div>
 
       <div class="section">
         <h2>🛡️ Data Validation</h2>
-        <p>All input data is validated to ensure:</p>
+        <p>All inputs are validated on the server to ensure:</p>
         <ul>
-          <li>✔ Required fields are filled</li>
-          <li>✔ Dates and emails have valid formats</li>
-          <li>✔ Unique constraints and logic rules are respected</li>
+          <li>✔ Required fields (e.g. name, date) are not empty</li>
+          <li>✔ Valid formats for email, date, status</li>
+          <li>
+            ✔ Logical constraints (e.g. age ≥ 0, status in allowed values)
+          </li>
         </ul>
       </div>
 
-      <p><em>Use tools like Postman to send requests to these routes.</em></p>
+      <p>
+        <em
+          >Use Postman or any REST client to interact with these endpoints.</em
+        >
+      </p>
     </div>
   </body>
 </html>
